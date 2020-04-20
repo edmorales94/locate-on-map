@@ -1,4 +1,5 @@
-let delis = [{
+let delis = [
+        {
             "address" : "1683 E 172nd St, The Bronx, NY 10472, United States",
             "geometry" : {
                 "location" : {
