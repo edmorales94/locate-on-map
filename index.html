@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>Store Locator</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="This app uses the Google Maps API to pinpoint stores in your area">
+        <meta name="keywords" content="store locator, find stores">
+        <meta name="author" content="Edgar I. Morales">
+        <link type="text/css" rel="stylesheet" href="styles/mapLocator.css">
+</head>
+<body>
+    <h2>Deli Locator</h2>
+    <div id="map"></div>
+    <div id="search-container">
+        <div id="search">
+            <input id="zip-code" type="text" placeholder="Enter zip code">
+            <i class="fas fa-search"></i>
+        </div>
+    </div>
+    <div id="stores-container">
+        <div id="stores-list">
+        </div>
+    </div>
+
+
+    <script src="scripts/delis.js"></script>
+    <script src="scripts/DelisLocator.js"></script>
+    <script src="https://kit.fontawesome.com/69de13935f.js" crossorigin="anonymous"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNTwJg74kg2itZwHnomqh-Nv83osZSL6g&callback=initMap">
+    </script>
+</body>
+</html>
