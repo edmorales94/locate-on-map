@@ -81,6 +81,12 @@ i{
 #stores-container-background{
     display: flex;
     border-bottom: 1px solid black;
+    transition: all 150ms ease-in-out;
+}
+
+#stores-container-background:hover{
+    background-color: #ccc;
+    border-radius: 1rem;
 }
 
 .store-container{
