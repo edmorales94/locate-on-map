@@ -12,9 +12,7 @@ function initMap() {
         mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU}
     });
     infoWindow = new google.maps.InfoWindow();
-    showDeliMarkers();
-    displayDeli();
-    deliListener();
+    searchDeli();
 }
 
 function createMarker(latlng, name, addr, index){
@@ -31,7 +29,7 @@ function createMarker(latlng, name, addr, index){
     markers.push(marker);
 }
 
-function showDeliMarkers() {
+function showDeliMarkers(delis) {
     let bounds = new google.maps.LatLngBounds();
     delis.forEach((deli, index)=>{
         let latlng = new google.maps.LatLng(
@@ -45,7 +43,7 @@ function showDeliMarkers() {
     map.fitBounds(bounds);
 }
 
-function displayDeli() {
+function displayDeli(delis) {
     let deliHtml = '';
     delis.forEach((deli, index)=>{
         deliHtml += `
@@ -68,10 +66,34 @@ function displayDeli() {
 
 function deliListener() {
     let deliElements = document.querySelectorAll('.store-container');
-    console.log(deliElements);
     deliElements.forEach((element,index)=>{
         element.addEventListener('click', ()=>{
             new google.maps.event.trigger(markers[index], 'click');
         });
     });
+}
+
+function searchDeli(){
+    let foundDelis = [];
+    let zipCode = document.getElementById('zip-code').value;
+    if (zipCode){
+        delis.forEach((deli, index)=>{
+            if (deli.formatted_address.indexOf(zipCode)!==-1){foundDelis.push(deli)}
+        });
+    }
+    else{
+        foundDelis = delis;
+    }
+    clearLocations();
+    displayDeli(foundDelis);
+    showDeliMarkers(foundDelis);
+    deliListener();
+}
+
+function clearLocations() {
+    infoWindow.close();
+    for (let i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    markers.length = 0;
 }
