@@ -9,26 +9,45 @@
         <meta name="keywords" content="store locator, find stores">
         <meta name="author" content="Edgar I. Morales">
         <link type="text/css" rel="stylesheet" href="styles/mapLocator.css">
+        <script src="https://kit.fontawesome.com/69de13935f.js" crossorigin="anonymous"></script>
+        <script src="scripts/LocationsLists.js"></script>
 </head>
 <body>
-    <h2>Deli Locator</h2>
+    <h2><span id="service-type">Services</span>-Locator</h2>
     <div id="map"></div>
     <div id="search-container">
         <div id="search">
-            <input id="zip-code" type="text" placeholder="Enter zip code">
+            <input id="zip-code" type="text" placeholder="Enter zip code" onchange="searchDeli()">
             <i class="fas fa-search" onclick="searchDeli()"></i>
         </div>
     </div>
-    <div id="stores-container">
-        <div id="stores-list">
+    <div id="locations-container">
+        <div id="locations-list">
+        </div>
+    </div>
+    <div id="buttons-container">
+        <div id="hospital" class="button">
+            <i class="far fa-hospital"></i>
+        </div>
+        <div id="restaurant" class="button">
+            <i class="fas fa-utensils"></i>
+        </div>
+        <div id="bar" class="button">
+            <i class="fas fa-beer"></i>
+        </div>
+        <div id="gas" class="button">
+            <i class="fas fa-gas-pump"></i>
+        </div>
+        <div id="deli" class="button">
+            <i class="fas fa-store"></i>
+        </div>
+        <div id="toilet" class="button">
+            <i class="fas fa-toilet"></i>
         </div>
     </div>
 
-
-    <script src="scripts/delis.js"></script>
-    <script src="scripts/DelisLocator.js"></script>
-    <script src="https://kit.fontawesome.com/69de13935f.js" crossorigin="anonymous"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNTwJg74kg2itZwHnomqh-Nv83osZSL6g&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=[insertYourKeyFromGoogle]&callback=initMap">
     </script>
+    <script src="scripts/mapLocator.js"></script>
 </body>
 </html>
