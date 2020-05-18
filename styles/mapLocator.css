@@ -16,11 +16,13 @@ body{
 h2{
     position: absolute;
     z-index: 2;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
     top: 4rem;
     left: 2rem;
     text-transform: uppercase;
+    display: flex;
+    flex-grow: 1;
 }
 
 #map{
@@ -30,13 +32,14 @@ h2{
 
 #search-container{
     position: absolute;
-    width: 28%;
+    width: 23rem;
     background-color: #454E53;
     z-index: 2;
-    top: 9rem;
+    top: 7.5rem;
     left: 2rem;
     border-radius: 1rem;
     display: flex;
+    visibility: hidden;
 }
 
 #search{
@@ -60,19 +63,20 @@ i{
     color: white;
 }
 
-#stores-container{
+#locations-container{
     position: absolute;
     background-color: white;
-    width: 28%;
+    width: 23rem;
     z-index: 2;
-    top: 12rem;
+    top: 10.5rem;
     left: 2rem;
-    bottom: 1rem;
+    bottom: 5.5rem;
     border-radius: 1rem;
     display: flex;
+    visibility: hidden;
 }
 
-#stores-list{
+#locations-list{
     padding: 0 1.2rem;
     overflow-y: scroll;
     flex-grow: 1;
@@ -124,4 +128,89 @@ span{
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+}
+
+#buttons-container{
+    position: absolute;
+    z-index: 2;
+    bottom: 1rem;
+    left: 2rem;
+    width: 23rem;
+    background-color: #9A9FA8;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+}
+
+.button{
+    padding: .8rem;
+    background-color: dodgerblue;
+    border-radius: 1rem;
+}
+
+.button:hover{
+    cursor: pointer;
+}
+
+@media screen and (max-width: 414px) {
+    h2{
+        right: 1rem;
+        left: 1rem;
+        font-size: 1.5rem;
+    }
+
+    #search-container{
+        width: 100%;
+        top: 6rem;
+        left: 0;
+    }
+
+    #locations-container{
+        width: 100%;
+        top: 23rem;
+        left: 0;
+    }
+
+    #search{
+        padding: .5rem 0;
+    }
+
+    input{
+        text-align: center;
+    }
+
+    .address{
+        font-size: 1rem;
+        margin-top: 1.75rem;
+    }
+
+    #buttons-container{
+        bottom: 1rem;
+        left: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 640px) and (max-width: 768px) and (max-height: 800px){
+
+    #search-container{
+        left: 2%;
+        top: 42%;
+    }
+
+    #locations-container{
+        top: 55%;
+        left: 2%;
+        bottom: 1%;
+    }
+
+    #buttons-container{
+        width: auto;
+        height: 90%;
+        flex-direction: column;
+        align-items: center;
+        right: 10%;
+        left: auto;
+    }
 }
